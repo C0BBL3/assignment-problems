@@ -1,2 +1,2 @@
 language = "python3"
-run = "tests/test_combine_sorted_lists.py"
+run = "python tests/test_combine_sorted_lists.py"
