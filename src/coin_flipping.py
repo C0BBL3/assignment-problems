@@ -2,7 +2,7 @@ import math
 import random
 
 def probability(num_heads, num_flips):
-    return (factorial(num_flips) / factorial(num_flips - num_heads)) / 2 ** num_flips
+    return (factorial(num_flips) / (factorial(num_heads) * factorial(num_flips - num_heads))) / 2 ** num_flips
 
 def monte_carlo_probability(num_heads, num_flips):
     flips = []

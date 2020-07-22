@@ -11,6 +11,6 @@ def combine_sorted_lists(list_1, list_2):
             sorted_arr.append(list_2[y])
             y += 1
 
-    sorted_arr += list_1[x:]
-    sorted_arr += list_2[y:]
+    sorted_arr += list_1[x:] #append the rest  
+    sorted_arr += list_2[y:] #of both arrays
     return sorted_arr

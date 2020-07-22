@@ -9,7 +9,7 @@ def divide_and_conquer_sort(arr):
   
           
         arr = combine_sorted_lists(sorted_first_half, sorted_second_half)
-          
+        
     
     return arr
   
