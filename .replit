@@ -1,2 +1,2 @@
 language = "python3"
-run = "python tests/test_coin_flipping.py"
+run = "python plots/plot_coin_flipping.py"
