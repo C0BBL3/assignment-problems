@@ -10,7 +10,7 @@ p_2, q_2 = make_p_and_q(1000)
 p_3, q_3 = make_p_and_q(10000)
 
 def kl_divergence(p, q):
-    if len(p) != len(q):
+    if len(p) == len(q):
         return sum([p[x] * math.log(p[x] / q[x]) for x in range(0, len(p))])
 
 
