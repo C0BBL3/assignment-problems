@@ -1,9 +1,9 @@
 import math
-from coin_flipping import monte_carlo_probability, probability
+from coin_flipping import monte_carlo_probability, probability, count_samples
 
 
 def make_p_and_q(samples):
-    return [sum([monte_carlo_probability(j, 5) for j in range(0, 5)]) for i in range(0, samples)], [sum([probability(j, 5) for j in range(0, 5)]) for i in range(0, samples)]
+    return count_samples(samples, 5), [probability(i, 5) for i in range(0, 6)]
 
 p_1, q_1 = make_p_and_q(100)
 p_2, q_2 = make_p_and_q(1000)
