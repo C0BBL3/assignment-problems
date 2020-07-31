@@ -2,6 +2,24 @@ import matplotlib.pyplot as plt
 import sys
 sys.path.append('src')
 from coin_flipping import probability
+
+def make_graph_for_biased_coins(coin):
+    result = [0, 0, 0, 0]
+    for flips in coin:
+        if flips.count('H') == 0:
+            result[0] += 1 / len(coin)
+            
+        if flips.count('H') == 1:
+            result[1] += 1 / len(coin)
+
+        elif flips.count('H') == 2:
+            result[2] += 1 / len(coin)
+        
+        elif flips.count('H') == 3:
+            result[3] += 1 / len(coin)
+    
+    return result
+
 plt.style.use('bmh')
 coin_1 = ['TTH', 'HHT', 'HTH', 'TTH', 'HTH', 'TTH', 'TTH', 'TTH', 'THT', 'TTH', 'HTH', 'HTH', 'TTT', 'HTH', 'HTH', 'TTH', 'HTH', 'TTT', 'TTT', 'TTT', 'HTT', 'THT', 'HHT', 'HTH', 'TTH']
 coin_2 = ['HTH', 'HTH', 'HTT', 'THH', 'HHH', 'THH', 'HHH', 'HHH', 'HTT', 'TTH', 'TTH', 'HHT', 'TTH', 'HTH', 'HHT', 'THT', 'THH', 'THT', 'TTH', 'TTT', 'HHT', 'THH', 'THT', 'THT', 'TTT']
@@ -18,16 +36,4 @@ plt.savefig('plot.png')
 plt.show()
 
 
-def make_graph_for_biased_coins(coin):
-    result = [0, 0, 0]
-    for flips in coin:
-        if flips.count['H'] == 1:
-            result[0] += 1 / len(coin)
 
-        elif flips.count['H'] == 2:
-            result[1] += 1 / len(coin)
-        
-        elif flips.count['H'] == 3:
-            result[2] += 1 / len(coin)
-    
-    return result
