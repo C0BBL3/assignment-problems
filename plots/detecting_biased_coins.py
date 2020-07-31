@@ -1,0 +1,12 @@
+from coin_flipping import probability, generate_sample
+sys.path.append('src')
+plt.style.use('bmh')
+plt.plot([i for i in range(0, 26)], [sum(generate_sample(3)) for i in range(0, 26)], linewidth=1)
+plt.plot([i for i in range(0, 26)], [sum(generate_sample(3)) for i in range(0, 26)], linewidth=1)
+plt.plot([i for i in range(0, 26)], [sum(generate_sample(3)) for i in range(0, 26)], linewidth=1)
+plt.legend(['P_1(x)', 'P_2(x)', 'P_3(x)'])
+plt.ylabel('Number of Heads per Sample')
+plt.xlabel('Sample Number')
+plt.title('Detecting Biased Coins')
+plt.savefig('plot.png')
+plt.show()
