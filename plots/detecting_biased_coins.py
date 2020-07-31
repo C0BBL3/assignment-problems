@@ -35,5 +35,6 @@ plt.title('True Distribution vs Coin sets')
 plt.savefig('plot.png')
 plt.show()
 
-
-
+#coin set 1 is more tails biased
+#coin set 2 is even
+#coin set 3 is more head biased
