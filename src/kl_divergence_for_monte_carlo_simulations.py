@@ -10,7 +10,7 @@ p_2, q_2 = make_p_and_q(1000)
 p_3, q_3 = make_p_and_q(10000)
 
 def kl_divergence(p, q):
-    return sum([p[x] * math.log(p[x] / q[x]) for x in range(0, len(p)) if p[x] != 0 and q[x] != 0])
+    return sum([p[x] * math.log(p[x] / q[x]) if p[x] != 0 and q[x] != 0 else 0 for x in range(0, len(p)) if p[x] != 0 and q[x] != 0])
 
 #
 #print('Computing KL Divergence for MC Simulations...')
