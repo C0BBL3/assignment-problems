@@ -27,7 +27,7 @@ for person, flip_sequence in flips.items():
     ordered_random_flip_sequence.append([])
     ordered_flip_sequence = order_flip_sequence(flip_sequence)
     for j in range(0, 5):
-        ordered_random_flip_sequence[i].append(ordered_flip_sequence.count(j))
+        ordered_random_flip_sequence[i].append(ordered_flip_sequence.count(j) / 20)
 
     i += 1
 
