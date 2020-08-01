@@ -12,11 +12,11 @@ p_3, q_3 = make_p_and_q(10000)
 def kl_divergence(p, q):
     return sum([p[x] * math.log(p[x] / q[x]) for x in range(0, len(p))])
 
-
-print('Computing KL Divergence for MC Simulations...')
-print('100 samples --> KL Divergence = {}'.format(kl_divergence(p_1, q_1)))
-print('1000 samples --> KL Divergence = {}'.format(kl_divergence(p_2, q_2)))
-print('10000 samples --> KL Divergence = {}'.format(kl_divergence(p_3, q_3)))
+#
+#print('Computing KL Divergence for MC Simulations...')
+#print('100 samples --> KL Divergence = {}'.format(kl_divergence(p_1, q_1)))
+#print('1000 samples --> KL Divergence = {}'.format(kl_divergence(p_2, q_2)))
+#print('10000 samples --> KL Divergence = {}'.format(kl_divergence(p_3, q_3)))
 
 # As the number of samples increases, the KL divergence converges to 0 because the more samples
 # there are the more accurate the monte carlo simulation gets and therefore the closer in resembelance
