@@ -31,7 +31,7 @@ for person, flip_sequence in flips.items():
 
     i += 1
 
-diverged_flip_seqences = [kl_divergence(ordered_random_flip_sequence[i], [probability(j, 5) for j in range(0, 5)]) for i in range(0, 5)]
+diverged_flip_seqences = [kl_divergence(ordered_random_flip_sequence[i], [probability(j, 4) for j in range(0, 5)]) for i in range(0, 5)]
 
 print('\nDivergence')
 print("    George's samples divergence", diverged_flip_seqences[0])
