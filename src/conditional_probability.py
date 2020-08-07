@@ -16,45 +16,48 @@ test = {
 
 
 def probability_prev_next(next_flip, prev_flip, dictionary):
-    count_prev_and_next = []
-    for person, flip_sequence in dictionary.items():
-        count_prev_and_next.append(flip_sequence.count(prev_flip + next_flip))
-
-    count_prev = []
-    for person, flip_sequence in dictionary.items():
-        count_prev.append(flip_sequence.count(str(prev_flip) + 'H') + flip_sequence.count(str(prev_flip) + 'T'))
-
     result = []
-    for i in range(0, len(count_prev_and_next)):
-        result.append(count_prev_and_next[i] / count_prev[i])
+    for _, flip_sequence in dictionary.items():
+        result.append(conditional_probability(next_flip, prev_flip, flip_sequence))
 
     return result
 
+
+def conditional_probability(next_flip, prev_flip, flip_sequence):
+    count_prev_and_next = flip_sequence.count(prev_flip + next_flip)
+
+    count_prev = flip_sequence.count(str(prev_flip) + 'H') + flip_sequence.count(str(prev_flip) + 'T')
+    
+    return count_prev_and_next / count_prev
+
+def make_result_string(next, prev, dictionary):
+    return ''.join([str(person) + ': ' + str(round(probability_prev_next(next, prev, dictionary)[list(dictionary.keys()).index(person)], 3)) + ' ' for person, flip_sequence in dictionary.items()])
+
 print('debugging')
 print('\nFor each Test, following probabilities for each function are...')
-result_string = ''.join([str(person) + ': ' + str(round(probability_prev_next('H', 'H', test)[list(test.keys()).index(person)], 3)) + ' ' for person, flip_sequence in test.items()])
+result_string = make_result_string('H', 'H', test)
 print('    P(next flip was heads | previous flip was heads):', result_string)
 
-result_string = ''.join([str(person) + ': ' + str(round(probability_prev_next('T', 'H', test)[list(test.keys()).index(person)], 3)) + ' ' for person, flip_sequence in test.items()])
+result_string = make_result_string('T', 'H', test)
 print('    P(next flip was tails | previous flip was heads):', result_string)
 
-result_string = ''.join([str(person) + ': ' + str(round(probability_prev_next('H', 'T', test)[list(test.keys()).index(person)], 3)) + ' ' for person, flip_sequence in test.items()])
+result_string = make_result_string('H', 'T', test)
 print('    P(next flip was heads | previous flip was tails):', result_string)
 
-result_string = ''.join([str(person) + ': ' + str(round(probability_prev_next('T', 'T', test)[list(test.keys()).index(person)], 3)) + ' ' for person, flip_sequence in test.items()])
+result_string = make_result_string('T', 'T', test)
 print('    P(next flip was tails | previous flip was tails):', result_string)
 print('\n')
 
 print('\nFor each person, following probabilities for each function are...')
-result_string = ''.join([str(person) + ': ' + str(round(probability_prev_next('H', 'H', flips)[list(flips.keys()).index(person)], 3)) + ' ' for person, flip_sequence in flips.items()])
+result_string = make_result_string('H', 'H', flips)
 print('    P(next flip was heads | previous flip was heads):', result_string)
 
-result_string = ''.join([str(person) + ': ' + str(round(probability_prev_next('T', 'H', flips)[list(flips.keys()).index(person)], 3)) + ' ' for person, flip_sequence in flips.items()])
+result_string = make_result_string('T', 'H', flips)
 print('    P(next flip was tails | previous flip was heads):', result_string)
 
-result_string = ''.join([str(person) + ': ' + str(round(probability_prev_next('H', 'T', flips)[list(flips.keys()).index(person)], 3)) + ' ' for person, flip_sequence in flips.items()])
+result_string = make_result_string('H', 'T', flips)
 print('    P(next flip was heads | previous flip was tails):', result_string)
 
-result_string = ''.join([str(person) + ': ' + str(round(probability_prev_next('T', 'T', flips)[list(flips.keys()).index(person)], 3)) + ' ' for person, flip_sequence in flips.items()])
+result_string = make_result_string('T', 'T', flips)
 print('    P(next flip was tails | previous flip was tails):', result_string)
 print('\n')
