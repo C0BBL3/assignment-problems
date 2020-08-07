@@ -26,12 +26,23 @@ def probability_prev_next(next_flip, prev_flip, dictionary):
 def conditional_probability(next_flip, prev_flip, flip_sequence):
     count_prev_and_next = flip_sequence.count(prev_flip + next_flip)
 
-    count_prev = flip_sequence.count(str(prev_flip) + 'H') + flip_sequence.count(str(prev_flip) + 'T')
-    
+    count_prev = count(prev_flip + 'H', flip_sequence) + count(prev_flip + 'T', flip_sequence)
+
     return count_prev_and_next / count_prev
+
+def count(string, flip_sequence):
+    result = 0
+    for i in range(0, len(flip_sequence) - 1):
+        if flip_sequence[i] + flip_sequence[i + 1] == string:
+            result += 1
+
+    return result
 
 def make_result_string(next, prev, dictionary):
     return ''.join([str(person) + ': ' + str(round(probability_prev_next(next, prev, dictionary)[list(dictionary.keys()).index(person)], 3)) + ' ' for person, flip_sequence in dictionary.items()])
+
+print('"fail case"')
+print(conditional_probability('H', 'T', 'TTTTTTTHTHH'))
 
 print('debugging')
 print('\nFor each Test, following probabilities for each function are...')
