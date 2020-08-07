@@ -1,2 +1,2 @@
 language = "python3"
-run = "python plots/conditional_probability.py"
+run = "python src/conditional_probability.py"
