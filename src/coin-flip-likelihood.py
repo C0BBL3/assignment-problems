@@ -13,8 +13,10 @@ print('L(p = 0.55 | HHTTH) =', probability_likelihood(3, 2, probability=0.55))  
 
 print('L(p | HHTTH) =>', probability_likelihood(3, 2))  # L(p) = p ^ 3 * p ^ 2
 
+range_of_numbers = [x / 100 for x in range(0, 101)]
+
 plt.style.use('bmh')
-plt.plot([probability_likelihood(3, 2, i) for i in range(0, 1, 0.01)])
+plt.plot([probability_likelihood(3, 2, i) for i in range_of_numbers])
 plt.legend(['Predicted y-values'])
 plt.ylabel('likelihood')
 plt.xlabel('probability')
