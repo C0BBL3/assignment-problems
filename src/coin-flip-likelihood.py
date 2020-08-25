@@ -4,7 +4,7 @@ def probability_likelihood(heads_count, tails_count, probability=None):
     if probability != None:
         return round((probability ** heads_count) * (1 - probability)**tails_count, 5)
     else:
-        return 'L(p) = p ^ ' + str(heads_count) + ' * p ^ ' + str(tails_count)
+        return 'L(p) = p ^ ' + str(heads_count) + ' * 1-p ^ ' + str(tails_count)
     
 
 print('L(p = 0.5 | HHTTH) =', probability_likelihood(3, 2, probability=0.5))  # 0.5 ^ 3 * 0.5 ^ 2 = 0.03125 | 3 + 1 + 2 + 5 = 11 | this works
