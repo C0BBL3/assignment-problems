@@ -6,8 +6,8 @@ probabilities = [probability(i, 4) for i in range(0, 5)]
 def expected_value(probabilities, num_flips=4):
     return sum([x * probabilities[x] for x in range(0, num_flips + 1)])
 
-def variance(X):
-    return sum([(value - expected_value(X)) ** 2 for value in X]) / len(X)
+def variance(X, num_flips=4):
+    return sum([(x - expected_value(X)) ** 2 * probabilities[x] for x in range(0, num_flips + 1)])
 
 def st_dev(X):
     return math.sqrt(variance(X))
@@ -25,10 +25,10 @@ print('Question A.2: X would be 2 heads out of 4 flips because an unbiased coin 
 
 print('Question A.3:', expected_value(probabilities))  # E x*p(x) = 2
 
-print('Question A.4:', variance(probabilities))  # E (X-X¯)^2 = 2
+print('Question A.4:', variance([i for i in range(0, 5)]))  # E (X-X¯)^2 = 2
 
-print('Question A.5:', st_dev(probabilities))
-
+print('Question A.5:', st_dev([i for i in range(0, 5)]), '\n')
+'''
 biased_probabilities = [probability_likelihood(i, 4 - i) for i in range(0, 5)]
 
 print('biased_probabilities', biased_probabilities)
@@ -40,7 +40,7 @@ print('Question B.2: X would be 2 heads out of 4 flips because an unbiased coin 
 
 print('Question B.3:', expected_value(biased_probabilities))  # E x*p(x) = 2
 
-print('Question B.4:', variance(biased_probabilities))  # E (X-X¯)^2 = 2
+print('Question B.4:', variance([i for i in range(0,5)]))  # E (X-X¯)^2 = 2
 
-print('Question B.5:', st_dev(biased_probabilities), '\n')
+print('Question B.5:', st_dev([i for i in range(0, 5)]), '\n')'''
 
