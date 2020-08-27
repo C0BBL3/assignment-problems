@@ -1,0 +1,24 @@
+A.1 Integral of p_2(x) from -infitiy to infitiy =  Integral of 0 from -infitiy to < 0  + Integral of 2e^-2x from 0 to infitiy = 0 {lim|e^-2x| -> 0} - e^-infitiy = 1/e^0 - 0 = 1
+
+A.2 Integral of 2e^-2x from >0 to 1 = e^-2x from >0 to 1 = {lim|e^-2x| -> 0} - e^-2 = 1/e^0 - e ^-2 = 1 - e^-2 = 0.86466
+
+A.3  Integral of p_2(x) /  Integral of 0 from -infitiy to x | {if x < 0}    \ <-- my attempt at a
+A.3  from -infitiy to x \  Integral of 2e^-2x from 0 to x   | {else x >= 0} / <-- piecewise function
+
+A.4  Expected Value /  0                                    | {if x < 0}    \ <-- my attempt at a
+A.4  of X           \  Integral of 2e^-2i from 0 to infitiy | {else x >= 0} / <-- piecewise function
+
+A.5  Varience of /  0                                         | {if x < 0}    \ <-- my attempt at a
+A.5       X      \  V (i * E[X]) ** 2 for i from 0 to infitiy | {else x >= 0} / <-- piecewise function
+
+--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+B.1 Integral of p_λ(x) from -infitiy to infitiy =  Integral of λe^-λx from -infitiy to infitiy = e^-λx from -infitiy to infitiy = 1
+
+B.2 Integral of λe^-λx from >0 to <1 = e^-λx from >0 to <1 = {lim|e^-λx| -> 0} -{lim|e^-λx| -> 1} = 1/e^0 - 1/e ^-λ = 1 - 1 / e^λ @ λ=2 => 1 - 1 / e ^ 2 = 0.86466
+
+B.3  Integral of p_λ(x) from -infitiy to x  { Integral of λe^-λx from -infitiy to infitiy |  } 
+
+B.4  Expected Value of X { Integral of λe^-λx from -infitiy to infitiy | for all x }
+
+A.5  Varience of X { V (i * E[X]) ** 2 for i from 0 to infitiy | for all x }
