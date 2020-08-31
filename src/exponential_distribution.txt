@@ -1,27 +1,82 @@
-A.1 Integral of p_2(x) from -infitiy to infitiy =  Integral of 0 from -infitiy to < 0  + Integral of 2e^-2x from 0 to infitiy = 0 {lim|e^-2x| -> 0} - e^-infitiy = 1/e^0 - 0 = 1
+A.1 Integral of p_2(x) from -infitiy to infitiy 
+	=  Integral of 0 from -infitiy to < 0  + Integral of 2e^-2x from 0 to infitiy 
+	= 0 {lim|e^-2x| -> 0} - e^-infitiy 
+	= 1/e^0 - 0 
+	= 1
 
-A.2 Integral of 2e^-2x from >0 to 1 = e^-2x from >0 to 1 = {lim|e^-2x| -> 0} - e^-2 = 1/e^0 - e ^-2 = 1 - e^-2 = 0.86466
+A.2 Integral of 2e^-2x from >0 to 1 
+	= e^-2x from >0 to 1 
+	= {lim|e^-2x| -> 0} - e^-2 
+	= 1/e^0 - e ^-2 
+	= 1 - e^-2 
+	= 0.86466
 
-A.3  Integral of p_2(x) /  Integral of 0 from -infitiy to x | {if x < 0}    \ <-- my attempt at a    | @ x=x => Integral of 2e ^ -2x from >0 to x = lim|e ^ -2x| -> 0} - e ^ -2x = 
-A.3  from -infitiy to x \  Integral of 2e^-2x from 0 to x   | {else x >= 0} / <-- piecewise function | = 1/e^0 - e ^-2x = 1 - e ^ -2x <-- answer
+A.3  Integral of p_2(x) /  Integral of 0 from -infitiy to x | {if x < 0}    \ <-- my attempt at a    | 
+A.3  from -infitiy to x \  Integral of 2e^-2x from 0 to x   | {else x >= 0} / <-- piecewise function | 
+	@ x=x
+	=> Integral of 2e ^ -2x from >0 to x 
+	= {lim|e ^ -2x| -> 0} - e ^ -2x 
+	= 1/e^0 - e ^-2x 
+	= 1 - e ^ -2x
 
 A.4  Expected Value /  0                                    | {if x < 0}    \ <-- my attempt at a
 A.4  of X           \  Integral of 2e^-2x from 0 to infitiy | {else x >= 0} / <-- piecewise function
+	=> Integral of 2e ^ -2x from >0 to infitiy 
+	= {lim|e ^ -2x| -> 0+} - {lim|e ^ -2x| -> infitiy} 
+	= 1/e^0 - e ^-infitiy 
+	= 1 - 0
+	= 1
 
 A.5  Varience of /  0                                         | {if x < 0}    \ <-- my attempt at a
 A.5       X      \  V (i * E[X]) ** 2 for i from 0 to infitiy | {else x >= 0} / <-- piecewise function
+	Integral of (x - E[X]) ^ 2 * p_2(x) from -infinity to infinity
+	= Integral of (x - 0.5) ^ 2 * 0 from -infinity to 0 + Integral of (x - 0.5) ^ 2 * 2e ^ -2x from 0 to infinity
+	= (4x ^ 2 + 1) * e ^ -2x) / -4 from 0 to infinity
+	= (0 * e ^ 0) / -4 - ((4 * infinity + 1) * e ^ -infinity / -4)
+	= -1 / -4
+	= 0.25
 
 --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
 
-B.1 Integral of p_λ(x) from -infitiy to infitiy =  Integral of λe^-λx from -infitiy to infitiy = e^-λx from -infitiy to infitiy = 1
+B.1 Integral of p_λ(x) from -infitiy to infitiy 
+	Integral of λe^-λx from -infitiy to infitiy 
+	= e^-λx from -infitiy to infitiy 
+	= 0 {lim|e^-λx| -> 0} - e^-infitiy 
+	= 1/e^0 - 0 
+	= 1
 
-B.2 Integral of λe^-λx from >0 to <1 = e^-λx from >0 to <1 = {lim|e^-λx| -> 0} -{lim|e^-λx| -> 1} = 1/e^0 - 1/e ^-λ = 1 - 1 / e^λ @ λ=2 => 1 - 1 / e ^ 2 = 0.86466
+B.2 Integral of λe^-λx from >0 to <1 
+    = e^-λx from >0 to <1 = {lim|e^-λx| -> 0} -{lim|e^-λx| -> 1} 
+    = 1/e^0 - 1/e ^-λ 
+	= 1 - 1 / e^λ 
+    @ λ=2 
+	=> 1 - 1 / e ^ 2
+	= 0.86466
 
-B.3  Integral of p_λ(x) /  Integral of 0 from -infitiy to x | {if x < 0}    \ <-- my attempt at a    | @ λ=2 and x=x => Integral of 2e ^ -2x from >0 to x = lim|e ^ -2x| -> 0} - e ^ -2x = 
-B.3  from -infitiy to x \  Integral of λe^-λx from 0 to x   | {else x >= 0} / <-- piecewise function | = 1/e^0 - e ^-2x = 1 - e ^ -2x <-- answer
+B.3  Integral of p_λ(x) /  Integral of 0 from -infitiy to x | {if x < 0}    \ <-- my attempt at a 
+B.3  from -infitiy to x \  Integral of λe^-λx from 0 to x   | {else x >= 0} / <-- piecewise function
+	Integral of 2e ^ -2x from >0 to x 
+	= {lim|e ^ -λx| -> 0} - e ^ -λx 
+	= 1/e^0 - e ^-λx 
+	= 1 - e ^ -λx
+	@ λ = 2
+	=> 1 - e ^ -2x
 
 B.4  Expected Value /  0                                    | {if x < 0}    \ <-- my attempt at a
 B.4  of λ           \  Integral of λe^-λx from 0 to infitiy | {else x >= 0} / <-- piecewise function
+	Integral of λ * e^-λx from 0 to infinity
+    = -e ^-λx from 0 to infinity
+    = -e ^ -λ * infinity - -e ^ 0
+    = 0 * infinity + e ^ 0
+    = 1
 
 B.5  Varience  / 0                                         | {if x < 0}    \ <-- my attempt at a
-B.5  of X      \ V (i * E[X]) ** 2 for i from 0 to infitiy | {else x >= 0} / <-- piecewise function
+B.5  of X      \ V (i * E[X]) ** 2 * p_λ(x) for i from 0 to infitiy | {else x >= 0} / <-- piecewise function
+	Integral of (x - E[X]) ^ 2 * p_λ(x) from -infinity to infinity
+	= Integral of (x - 1 / λ) ^ 2 * λe ^ -λx from 0 to infinity
+	= ((λ ^ 2 * x ^ 2 + 1) * e ^ -λx) / -λ ^ 2 from 0 to infinity
+	= (1 * e ^ 0) / -λ ^ 2 - ((4 * infinity + 1) * e ^ -infinity / -λ ^ 2)
+	= -1 / -λ ^ 2 - 0
+	= 1 / λ ^ 2
+	@ λ = 2
+	=> 0.25
