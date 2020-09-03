@@ -1,0 +1,30 @@
+A.  sum(P(x)) = Integral of p(x) from -infinity to infinity 
+    = Integral of 0 from -infinity to a + Integral of k from a to b + Integral of 0 from b to infinity
+    = 0 + Integral of k from a to b + 0 
+    = k(b - a) = 1
+    => k = 1 / (b - a) because the distribution of probability regarless of bias is always 1
+
+B.  p(X <= x) = Integral of p(x) from -infinity to x
+    Case 1: x < a
+        Integral of p(x) from -infinity to x 
+        = 0
+    Case 2: a <= x <= b
+        Integral of p(x) from a to x 
+        = Integral of k from a to x
+        = k(x - a) = 1
+        => k = 1 / (x - a)
+    Case 3: x > b
+        Integral of p(x) from b to infinity
+        = 0
+
+C.  E[X] = Integral of x * p(x) from -infinity to infinity
+    = Integral of x * 0 from -infinity to a + Integral of kx from a to b + Integral of x * 0 b to infinity 
+    = Integral of kx from a to b
+    = kx ^ 2 / 2 from a to b
+    = k(b ^ 2 - a ^ 2) / 2
+
+D.  Var[X] = Integral of (x - E[X]) ^ 2 * p(x) from -infinity to infinity)
+    = Integral of (x - (k(b ^ 2 - a ^ 2) / 2)) ^ 2 * k from a to b *NOTE* this is only from a to b because the expected value everywhere else is 0 so the varience everywhere else is zero
+    = Integral of x ^ 2k - k ^ 2 * (b ^ 2 - a ^ 2) * x + (k ^ 3 * (b ^ 2 - a ^ 2) ^ 2) / 4 from a to b
+    = kx ^ 3 / 3 - (k ^ 2 * x ^ 2 * (b ^ 2 - a ^ 2) ^ 2) / 2 + (k ^ 3 * x * (b ^ 2 - a ^ 2) ^ 2) / 4 from a to b
+    = k * (b ^ 3 - a ^ 3) / 3 - k ^ 2 * (b ^ 2 - a ^ 2) ^ 2 * ((b ^ 2 - a ^ 2) / 8 + (kb + ka) / 4)
