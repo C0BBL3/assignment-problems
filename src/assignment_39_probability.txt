@@ -50,4 +50,5 @@ B.5 P(X > 1 week) = 1 - P(X <= 1 week)
     => x = e^(-10 * 7 days)
     = e^(-6048000)
     ~~ 0% much much closer to zero than previous about zero
-    Because the probability in every calculator always prints out zero, even in scientific calculators you'll be fiiiiiiiine....
+    Because the probability in every calculator always prints out zero even if we were to multiply e^(-6048000) by 1000000000 days and the 1000000000 is about 2739726 years or 2.7 millenia, you'll be fiiiiiiiine....
+
