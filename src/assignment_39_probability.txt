@@ -1,0 +1,53 @@
+A.1 U(a -> b) = 1 / (b - a)
+    E[a -> b] = (b + a) / 2
+    => 8:00 + 20 + E(0 -> 15)
+    = 8:20 + 15 / 2
+    = 8:27.5
+
+A.2 U(a -> b) = 1 / (b - a)
+    E[a -> b] = (b + a) / 2
+    => 8:05 + 20 + E(0 -> 10)
+    = 8:25 + 10 / 2
+    = 8:30
+
+A.3 8:00 + 20 + x < 8:30
+    => x < 10
+    => a = 0, b = 15
+    => (x - a)/(b - a)
+    = (10 - 0)/(15 - 0)
+    = 66.667%
+
+A.4 8:05 + 20 + x < 8:30
+    => x < 5
+    => a = 0, b = 10
+    => (x - a) / (b - a)
+    => (5 - 0)/(10 - 0)
+    => 50%
+
+B.1 p_10(x) = 10e^-10x
+    => E[x] = 1/10 
+    = 0.1 seconds
+
+B.2 P(X > 60) = 1 - P(X <= 60)
+    = 1 - (1 - 1/e^λX) 
+    = e^(-λx)
+    = e^(-10*60) 
+    = 3.97 * 10^-31
+    ~~ 0% <- about zero
+
+B.3 .9999... = 1 - e^(-10*X)
+    => e^(-10X) = 0.000...1
+    => -10X = ln 0.0001
+    => X = -ln(0.0001)/10
+    = 0.6908 seconds
+
+B.4 P(X > 1 day) = 1 - P(X <= 1 day)
+    => x = e^(-10 * 24 hrs)
+    = e^(-864000)
+    ~~ 0% much closer to zero than previous about zero
+
+B.5 P(X > 1 week) = 1 - P(X <= 1 week)
+    => x = e^(-10 * 7 days)
+    = e^(-6048000)
+    ~~ 0% much much closer to zero than previous about zero
+    Because the probability in every calculator always prints out zero, even in scientific calculators you'll be fiiiiiiiine....
