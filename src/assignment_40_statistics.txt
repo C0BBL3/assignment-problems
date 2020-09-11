@@ -17,12 +17,18 @@
    => k = 0.9 <- max is at 0.9
    => p(0.9) = 0.0387420489
 
-4. The probability that P(k > 0.5) is 
+4. The probability that P(0.5 < k) = -k ^ 10 * (10 * k - 11) from 0.5 to 1
+   = 1 - 0.005859375
+   = 0.994140625
 
 5. The probability that P(0.85 < k < 0.95) = -k ^ 10 * (10 * k - 11) from 0.85 to 0.95
    = 0.898105408858 - 0.492186010852
    = 0.405919398006
 
-6. The probability that P(0.5 < k) = -k ^ 10 * (10 * k - 11) from 0.5 to 1
-   = 1 - 0.005859375
-   = 0.994140625
+6. 0.95 = Integral of 110 * k ^ 9 * (1 - k) from 0 to k
+   = k ^ 10 * (10 * k - 11) from 0 to k
+   = k ^ 10 * (10 * k - 11) - 0
+   = k ^ 10 * (10 * k - 11)
+   => 0.95 = k ^ 10 * (10 * k - 11)
+   => 0.95 = 10 k^11 - 11 k^10
+   => k = 1.12839 from wolfram
