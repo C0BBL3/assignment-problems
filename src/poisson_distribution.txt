@@ -1,0 +1,52 @@
+A.1. sum(p_λ(x)) = Integral of p_λ(x) from -infinity to infinity 
+   = Integral of 0 from -infinity to 0 + Integral of sum(2 ^ n * e ^ -2 / n!) from 0 to infinity
+   = Integral of e ^ -2 * sum(2 ^ n / n!) from 0 to infinity
+   = e ^ -2 * e ^ λ
+   since λ = 2
+   = e ^ -2 * e ^ 2
+   = 1
+
+A.2. P(10 < X <= 12) = 2 ^ ~10 * e ^ -2 / ~10! + 2^12 * e^-2 / 12
+   = e ^ -2 * (2 ^ ~10/ ~10! + 2 ^ 12 / 12!)
+
+A.3. E[X] = sum(n * 2 ^ n * e ^ -2 / n!) from 0 to infinity
+   = e ^ -2 sum(2 ^ n / (n - 1)!) from 0 to infinity
+   = 2 * e ^ -2 sum(2 ^ (n - 1) / (n - 1)!) from 0 to infinity
+   = 2 * e ^ -2 sum(2 ^ n / n!) from 0 to infinity
+   = 2 * e ^ -2 * e ^ 2
+   = 2 * 1
+   = 2
+
+A.4. Var[X] = sum((n - 2) ^ 2 * e ^ -2 * 2 ^ n / n!) from 0 to infinity
+   = e ^ -2 * sum((n - 2) ^ 2 * 2 ^ n / n!) from 0 to infinity
+   = e ^ -2 * (sum(n ^ 2 * 2 ^ n / n!) + sum(-4n * 2 ^ n / n!) + sum(4 * 2 ^ n / n!)) from 0 to infinity
+   = e ^ -2 * (sum(2 ^ n / (n - 2)!) + sum(-3 * 2 ^ n / n!) + 4e ^ 2)
+   = e ^ -2 * (4 * sum(2 ^ (n - 2) / (n - 2)!) + sum(-3 * 2 ^ n / n!) + 4e ^ 2)
+   = e ^ -2 * (4e ^ 2 + -8e ^ 2 + 4e ^ 2)
+   = 0
+
+B.1. sum(p_λ(x)) = Integral of p_λ(x) from -infinity to infinity 
+   = Integral of 0 from -infinity to 0 + Integral of sum(λ ^ n * e ^ -λ / n!) from 0 to infinity
+   = Integral of e ^ -λ * sum(λ ^ n / n!) from 0 to infinity
+   = e ^ -λ * e ^ λ
+   = 1
+
+A.2. P(10 < X <= 12) = λ ^ ~10 * e ^ -λ / ~10! + λ ^ 12 * e ^ -λ / 12
+   = e ^ -λ * (λ ^ ~10/ ~10! + λ ^ 12 / 12!)
+
+A.3. E[X] = sum(n * λ ^ n * e ^ -λ / n!) from 0 to infinity
+   = e ^ -λ sum(λ ^ n / (n - 1)!) from 0 to infinity
+   = λ * e ^ -λ sum(λ ^ (n - 1) / (n - 1)!) from 0 to infinity
+   = λ * e ^ -λ sum(λ ^ n / n!) from 0 to infinity
+   = λ * e ^ -λ * e ^ λ
+   = λ * 1
+   = λ
+
+A.4. Var[X] = sum((n - λ) ^ 2 * e ^ -λ * λ ^ n / n!) from 0 to infinity
+   = e ^ -λ * sum((n - λ) ^ 2 * λ ^ n / n!) from 0 to infinity
+   = e ^ -λ * (sum(n ^ 2 * λ ^ n / n!) + sum(-2λn * λ ^ n / n!) + sum((λ ^ 2) * λ ^ n / n!)) from 0 to infinity
+   = e ^ -λ * (sum(λ^n / (n - 2)!) + sum(-2λ * λ ^ n / (n - 1)!) + (λ ^ 2) * e ^ λ)
+   = e ^ -λ * (4 * sum(λ ^ (n - 2) / (n - 2)!) + sum(-3 * λ ^ n / n!) + (λ ^ 2) * e ^ λ)
+   = e ^ -λ * (4 * e ^ λ + -4λ * e ^ λ + (λ ^ 2) * e ^ λ)
+   = e ^ -λ * e ^ λ * (4 * -4 *λ * λ ^ 2)
+   = -16 * λ ^ 3
