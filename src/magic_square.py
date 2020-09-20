@@ -1,0 +1,53 @@
+def is_valid(matrix):
+    if check_rows(matrix)[1] and not check_cols(matrix)[0] and not check_diags(matrix)[0]: return True
+    if not check_rows(matrix)[0] and check_cols(matrix)[1] and not check_diags(matrix)[0]: return True
+    if not check_rows(matrix)[0] and not check_cols(matrix)[0] and check_diags(matrix)[1]: return True
+    if not check_rows(matrix)[0] and not check_cols(matrix)[0] and not check_diags(matrix)[0]: return True
+    if not (check_rows(matrix)[1] and check_cols(matrix)[1] and check_diags(matrix)[1]): return False 
+
+def inner_most_if(matrix):
+    if check_diags(matrix) == (True, True):
+        return True
+    elif check_diags(matrix) == (True, False):
+        return True
+    else:
+        return False
+
+def check_rows(matrix):
+    can_rows_be_added, i = can_rows_be_added_up(matrix)
+    if can_rows_be_added:
+        if sum(matrix[i]) == 15: return True, True
+        else: return True, False
+    else: return False, False
+
+def can_rows_be_added_up(matrix):
+    for row in matrix:
+        if None not in row: return True, matrix.index(row)
+    return False, None
+
+def check_cols(matrix):
+    can_cols_be_added, i = can_cols_be_added_up(matrix)
+    if can_cols_be_added:
+        if sum([row[i] for row in matrix]) == 15: return True, True
+        else: return True, False
+    else: return False, False
+
+def can_cols_be_added_up(matrix):
+    for i in range(len(matrix[0])):
+        col = [row[i] for row in matrix]
+        if None not in col: return True, i
+    return False, None
+
+def check_diags(matrix):
+    can_diags_be_added, diag = can_diags_be_added_up(matrix)
+    if can_diags_be_added:
+        if sum(diag) == 15: return True, True
+        else: return True, False
+    else: return False, False
+
+def can_diags_be_added_up(matrix):
+    forward_diag = [matrix[i][i] for i in range(len(matrix[0]))]
+    backward_diag = [matrix[i][(len(matrix) - 1) - i] for i in range(len(matrix[0]))]
+    if None not in forward_diag: return True, forward_diag
+    elif None not in backward_diag: return True, backward_diag
+    return False, None
