@@ -30,3 +30,5 @@ assert (round(euler.point[0],5), round(euler.point[1],5)) == (3, 9.29), "EulerEs
 print("    EulerEstimator's go_to_input() Passed!!!\n")
 
 print('All Tests Passed!!!')
+
+euler.plot([-5,5])
