@@ -1,2 +1,2 @@
 language = "python3"
-run = "python tests/test_euler_estimator.py"
+run = "python tests/parabola_plot.py"
