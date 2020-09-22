@@ -1,5 +1,4 @@
 import matplotlib.pyplot as plt
-import math
 
 class EulerEstimator:
 	def __init__(self, derivative, start_point):
