@@ -27,3 +27,5 @@ print("    is_valid() #3 Passed!!!\n")
 print("    Testing is_valid() #4")
 assert is_valid(arr4) == True, "is_valid was not right, it should be True because there is one row that's filled in and it sums to 15, but was {}".format(is_valid(arr4))
 print("    is_valid() #4 Passed!!!\n")
+
+print('All Tests Passed!!!')
