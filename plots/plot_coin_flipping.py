@@ -1,7 +1,7 @@
-from coin_flipping import probability, monte_carlo_probability
 import matplotlib.pyplot as plt
 import sys
 sys.path.append('src')
+from coin_flipping import probability, monte_carlo_probability
 plt.style.use('bmh')
 plt.plot([i for i in range(0, 11)], [probability(i, 10)
                                      for i in range(0, 11)], linewidth=2.5)

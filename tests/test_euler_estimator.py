@@ -11,7 +11,7 @@ assert euler.calc_derivative() == 2, "EulerEstimator's calc_derivative() was not
 print("    EulerEstimator's calc_derivative() Passed!!!\n")
 
 print("    Testing EulerEstimator's step_forward()")
-euler.step_forward(0.1)
+euler.step(0.1)
 assert tuple(euler.point) == (1.1, 4.2), "EulerEstimator's step_forward() was not right, it should be (1.1, 4.2), but was {}".format(tuple(euler.point))
 print("    EulerEstimator's step_forward() Passed!!!\n")
 
@@ -20,7 +20,7 @@ assert euler.calc_derivative() == 2.1, "EulerEstimator's calc_derivative() was n
 print("    EulerEstimator's calc_derivative() Passed!!!\n")
 
 print("    Testing EulerEstimator's step_forward()")
-euler.step_forward(-0.5)
+euler.step(-0.5)
 assert (round(euler.point[0],5), round(euler.point[1],5)) == (0.6, 3.15), "EulerEstimator's step_forward() was not right, it should be (0.6, 3.15), but was {}".format(tuple(euler.point))
 print("    EulerEstimator's step_forward() Passed!!!\n")
 
