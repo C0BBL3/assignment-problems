@@ -37,10 +37,8 @@ class EulerEstimator:
 		xs_forward, ys_forward = self.get_xs_and_ys(x_range, stepsize, True)
 		xs_backward, ys_backward = self.get_xs_and_ys(x_range, stepsize, False)
 		xs_backward.pop(0)
-		xs_backward.reverse()
 		ys_backward.pop(0)
-		ys_backward.reverse()
-		return xs_backward + xs_forward, ys_backward + ys_forward
+		return xs_backward[::-1] + xs_forward, ys_backward[::-1] + ys_forward
 
 	def get_xs_and_ys(self, x_range, stepsize, forward):
 		if forward:
