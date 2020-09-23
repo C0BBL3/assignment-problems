@@ -5,6 +5,9 @@ def is_valid(matrix):
     if not check_rows(matrix)[0] and not check_cols(matrix)[0] and not check_diags(matrix)[0]: return True
     if not (check_rows(matrix)[1] and check_cols(matrix)[1] and check_diags(matrix)[1]): return False 
 
+def half_valid(matrix, row_index, col_index):
+    return 14 - sum(matrix[row_index][:col_index] + matrix[row_index][col_index + 1:]) in list(range(0,10))
+
 def inner_most_if(matrix):
     if check_diags(matrix) == (True, True):
         return True

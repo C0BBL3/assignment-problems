@@ -1,29 +1,49 @@
 import sys
 sys.path.append('src')
-from magic_square import is_valid
+from magic_square import is_valid, half_valid
 
 def fix_arr(array):
-    for i, arr in enumerate(array):
-        for j, num in enumerate(arr):
-            if num == 0:
-                array[i][j] = None
-    return array
+    arr = [[value for value in row] for row in array]
+    for i, row in enumerate(arr):
+        for j, value in enumerate(row):
+            if value == 0:
+                arr[i][j] = None
+    return arr
 
-for num_1 in range(0, 10):
-    for num_2 in range(0, 10):
-        for num_3 in range(0, 10):
-            for num_4 in range(0, 10):
-                for num_5 in range(0, 10):
-                    for num_6 in range(0, 10):
-                        for num_7 in range(0, 10):
-                            for num_8 in range(0, 10):
-                                for num_9 in range(0, 10):
-                                    arr = [[num_1, num_2, num_3], [num_4, num_5, num_6], [num_7, num_8, num_9]]
-                                    arr = fix_arr(arr)
-                                    if is_valid(arr):
-                                        for ar in arr:
-                                            print(ar)
-                                    else:
-                                        continue 
+def increase_index(index, col_index):
+    if col_index == 0:
+        if index[0] <= 2 and index[1] < 2: return index[0], 2
+        elif index[0] < 2 and index[1] >= 2: return index[0] + 1, 1
+        elif index[0] >= 2 and index[1] >= 2: return None
+    elif col_index == 1:
+        if index[0] <= 2 and index[1] < 1: return index[0], 2
+        elif index[0] < 2 and index[1] >= 1: return index[0] + 1, 0
+        elif index[0] >= 2 and index[1] >= 1: return None
+    else:
+        if index[0] <= 2 and index[1] < 1: return index[0], 1
+        elif index[0] < 2 and index[1] >= 1: return index[0] + 1, 0
+        elif index[0] >= 2 and index[1] >= 1: return None
+
+index = (0,0)
+arr = [[0 for i in range(0,3)] for i in range(0,3)]
+while True:
+    col_index = 0
+    if half_valid(arr, index[0], col_index):
+        while sum(arr[index[0]]) < 15:
+            arr[index[0]][col_index] += 1
+            if is_valid(fix_arr(arr)):
+                for row in arr: print(row)
+                print('')
+        arr[index[0]][col_index] = 0
+    if arr[index[0]][index[1]] < 9: 
+        arr[index[0]][index[1]] += 1
+        continue
+    else:
+        index = increase_index(index, col_index)
+        if index == None:
+            index = (0, 0)
+            if col_index < 2: col_index += 1
+            else: exit()
+
 
 
