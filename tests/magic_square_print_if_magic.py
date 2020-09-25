@@ -10,40 +10,33 @@ def fix_arr(array):
                 arr[i][j] = None
     return arr
 
-def increase_index(index, col_index):
-    if col_index == 0:
-        if index[0] <= 2 and index[1] < 2: return index[0], 2
-        elif index[0] < 2 and index[1] >= 2: return index[0] + 1, 1
-        elif index[0] >= 2 and index[1] >= 2: return None
-    elif col_index == 1:
-        if index[0] <= 2 and index[1] < 1: return index[0], 2
-        elif index[0] < 2 and index[1] >= 1: return index[0] + 1, 0
-        elif index[0] >= 2 and index[1] >= 1: return None
-    else:
-        if index[0] <= 2 and index[1] < 1: return index[0], 1
-        elif index[0] < 2 and index[1] >= 1: return index[0] + 1, 0
-        elif index[0] >= 2 and index[1] >= 1: return None
+def increase_index(index, max_index):
+    if index[0] <= max_index[0] - 1 and index[1] < max_index[1] - 1: return index[0], index[1] + 1
+    elif index[0] < max_index[0] - 1 and index[1] == max_index[1] - 1: return index[0] + 1, 0
+    elif index == (max_index[0] - 1, max_index[1] - 1): return 0,0
+
+def no_duplicate_entries(arr):
+    for i, row_1 in enumerate(arr):
+        for j, value in enumerate(row_1):
+            if not (value in row_1[:j] + row_1[j+1:]):
+                for row_2 in arr[:i] + arr[i+1:]:
+                    if value in row_2:
+                        return False
+            else:
+                return False
+    return True
 
 index = (0,0)
-arr = [[0 for i in range(0,3)] for i in range(0,3)]
-while True:
-    col_index = 0
-    if half_valid(arr, index[0], col_index):
-        while sum(arr[index[0]]) < 15:
-            arr[index[0]][col_index] += 1
-            if is_valid(fix_arr(arr)):
-                for row in arr: print(row)
-                print('')
-        arr[index[0]][col_index] = 0
-    if arr[index[0]][index[1]] < 9: 
-        arr[index[0]][index[1]] += 1
-        continue
-    else:
-        index = increase_index(index, col_index)
-        if index == None:
-            index = (0, 0)
-            if col_index < 2: col_index += 1
-            else: exit()
-
-
+max_index = (2,2)
+for num_1 in range(0,10):
+    for num_2 in range(0,10):
+        for num_3 in range(0,10):
+            for num_4 in range(0,10):
+                arr = [[num_1, num_2], [num_3, num_4]]
+                filled_arr = [[arr[i][j] if j < max_index[1] else 15 - sum(arr[i]) for j in range(0, max_index[1] + 1)] if i < max_index[0] else [15 - sum([row[j] for row in arr]) if j < max_index[1] else 15 - sum([arr[i][j] for i in range(0, max_index[0]) for j in range(0, max_index[1]) if i == j]) for j in range(0, max_index[1] + 1)] for i in range(0, max_index[0] + 1)]
+                #I know its bad but look its 357 cols wide AND it works wrote it first try too, it is wider than wide putin, IT HAS TO STAY!!
+                fixed_arr = fix_arr(filled_arr)
+                if no_duplicate_entries(fixed_arr) and is_valid(fixed_arr):
+                    for row in fix_arr(fixed_arr): print(row)
+                    exit()
 
