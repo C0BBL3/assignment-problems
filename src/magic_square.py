@@ -56,15 +56,14 @@ def can_cols_be_added_up(matrix):
     return False, None
 
 def check_diags(matrix):
-    can_diags_be_added, diag = can_diags_be_added_up(matrix)
+    can_diags_be_added, forward_diag, backward_diag = can_diags_be_added_up(matrix)
     if can_diags_be_added:
-        if sum(diag) == 15: return True, True
+        if sum(forward_diag) == 15 and sum(backward_diag) == 15: return True, True
         else: return True, False
     else: return False, False
 
 def can_diags_be_added_up(matrix):
     forward_diag = [matrix[i][i] for i in range(len(matrix[0]))]
     backward_diag = [matrix[i][(len(matrix) - 1) - i] for i in range(len(matrix[0]))]
-    if None not in forward_diag: return True, forward_diag
-    elif None not in backward_diag: return True, backward_diag
-    return False, None
+    if None not in forward_diag and  None not in backward_diag: return True, forward_diag, backward_diag
+    else: return False, None
