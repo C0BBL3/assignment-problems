@@ -4,7 +4,7 @@ from euler_estimator import EulerEstimator
 
 print('\nTesting... \n')
 
-euler = EulerEstimator((lambda x: x + 1), (1, 4))
+euler = EulerEstimator([(lambda x: x + 1)], (1, (4)))
 
 print("    Testing EulerEstimator's calc_derivative()")
 assert euler.calc_derivative() == 2, "EulerEstimator's calc_derivative() was not right, it should be 2, but was {}".format(euler.calc_derivative())
