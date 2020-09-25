@@ -30,8 +30,8 @@ for num_1 in range(0,10):
                 arr = [[num_1, num_2], [num_3, num_4]]
                 filled_arr = [[arr[i][j] if j < max_index[1] else 15 - sum(arr[i]) for j in range(0, max_index[1] + 1)] if i < max_index[0] else [15 - sum([row[j] for row in arr]) if j < max_index[1] else 15 - sum([arr[i][j] for i in range(0, max_index[0]) for j in range(0, max_index[1]) if i == j]) for j in range(0, max_index[1] + 1)] for i in range(0, max_index[0] + 1)]
                 #I know its bad but look its 357 cols wide AND it works wrote it first try too, it is wider than wide putin, IT HAS TO STAY!!
-                fixed_arr = fix_arr(filled_arr)
+                fixed_arr = fix_array(filled_arr)
                 if no_duplicate_entries(fixed_arr) and is_valid(fixed_arr):
-                    for row in fix_arr(fixed_arr): print(row)
+                    for row in fix_array(fixed_arr): print(row)
                     exit()
 
