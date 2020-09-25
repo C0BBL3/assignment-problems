@@ -1,4 +1,4 @@
-import matplotlib.pyplot as plt
+#import matplotlib.pyplot as plt
 
 class EulerEstimator:
 	def __init__(self, derivatives, start_point):
@@ -7,10 +7,10 @@ class EulerEstimator:
 		self.point = list(start_point)
     
 	def calc_derivative(self):
-		return [derivative(self.point[0]) for derivative in self.derivatives]
+		return [derivative(self.point[0], self.point[1]) for derivative in self.derivatives]
     
 	def step(self, precision):
-		self.point[1] = [self.point[1][i] + precision * derivative for i, derivative in self.calc_derivative()]
+		self.point[1] = [self.point[1][i] + precision * derivative for i, derivative in enumerate(self.calc_derivative())]
 		self.point[0] += precision
 
 	def go_to_input(self, final_x, precision):
