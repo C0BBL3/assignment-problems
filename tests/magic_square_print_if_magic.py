@@ -2,18 +2,13 @@ import sys
 sys.path.append('src')
 from magic_square import is_valid, half_valid
 
-def fix_arr(array):
+def fix_array(array):
     arr = [[value for value in row] for row in array]
     for i, row in enumerate(arr):
         for j, value in enumerate(row):
             if value == 0:
                 arr[i][j] = None
     return arr
-
-def increase_index(index, max_index):
-    if index[0] <= max_index[0] - 1 and index[1] < max_index[1] - 1: return index[0], index[1] + 1
-    elif index[0] < max_index[0] - 1 and index[1] == max_index[1] - 1: return index[0] + 1, 0
-    elif index == (max_index[0] - 1, max_index[1] - 1): return 0,0
 
 def no_duplicate_entries(arr):
     for i, row_1 in enumerate(arr):
