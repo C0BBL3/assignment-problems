@@ -66,4 +66,4 @@ def can_diags_be_added_up(matrix):
     forward_diag = [matrix[i][i] for i in range(len(matrix[0]))]
     backward_diag = [matrix[i][(len(matrix) - 1) - i] for i in range(len(matrix[0]))]
     if None not in forward_diag and  None not in backward_diag: return True, forward_diag, backward_diag
-    else: return False, None
+    else: return False, None, None
