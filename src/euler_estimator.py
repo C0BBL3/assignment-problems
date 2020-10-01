@@ -23,13 +23,15 @@ class EulerEstimator:
 		self.step(final_x - self.point[0])
 		
 	def plot(self, x_range, stepsize=0.1, filename='plot.png'):
-		xs, ys = self.get_positions_for_line(x_range, stepsize)
+		if self.original_point[0] == x_range[1]: xs, ys = self.get_positions_for_line(x_range, -stepsize)
+		else: xs, ys = self.get_positions_for_line(x_range, stepsize)
 		for y in [[ys[i][j] for i in range(0, len(ys))] for j in range(0, len(self.point[1]))]: plt.plot(xs, y)
+		plt.savefig(filename)
 		plt.show()
-
+		
 	def get_positions_for_line(self, x_range, stepsize):
-		xs_forward, ys_forward = self.get_xs_and_ys(x_range[1], -1 * stepsize)
-		xs_backward, ys_backward = self.get_xs_and_ys(x_range[0], stepsize)
+		xs_forward, ys_forward = self.get_xs_and_ys(x_range[1],  stepsize)
+		xs_backward, ys_backward = self.get_xs_and_ys(x_range[0], -1 * stepsize)
 		return xs_backward[1:][::-1] + xs_forward, ys_backward[1:][::-1] + ys_forward
 
 	def get_xs_and_ys(self, x, stepsize):
