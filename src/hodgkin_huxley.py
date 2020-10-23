@@ -27,9 +27,7 @@ class Neuron:
     def a_h(self, t, x): return 0.07 * math.exp(-x[0] / 20)
     def b_h(self, t, x): return 1 / (math.exp(0.1 * (30 - x[0])) + 1)
     def I_Na(self, t, x): return self.g_Na(t, x) * (x[0] - self.V_Na)
-    def g_Na(self, t, x):
-        print('x',x)
-        return self.g_bar_Na * x[2] ** 3 * x[3]
+    def g_Na(self, t, x): return self.g_bar_Na * x[2] ** 3 * x[3]
     def I_k(self, t, x): return self.g_k(t, x) * (x[0] - self.V_k)
     def g_k(self, t, x): return self.g_bar_k * x[1] ** 4
     def I_L(self, t, x): return self.g_l(t, x) * (x[0] - self.V_L)
