@@ -61,3 +61,11 @@ class Neuron:
     def g_k(self, t, x): return self.g_bar_k * x[1] ** 4
     def I_L(self, t, x): return self.g_l(t, x) * (x[0] - self.V_L)
     def g_l(self, t, x): return self.g_bar_l
+
+
+def stimulus(t):
+    if 10 <= t <= 11 or 20 <= t <= 21 or 30 <= t <= 40 or 50 <= t <= 51 or 53 <= t <= 54 or 56 <= t <= 57 or 59 <= t <= 60 or 62 <= t <= 63 or 65 <= t <= 66: return 150
+    else: return 0
+
+neuron = Neuron(stimulus)
+neuron.plot_activity()
