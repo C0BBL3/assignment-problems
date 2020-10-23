@@ -37,7 +37,7 @@ class Neuron:
         self.derivatives = [self.dV, self.dn, self.dm, self.dh]
         self.x = 0.07 * (math.e ** 3 + 1)
         self.initial_v, self.initial_n, self.initial_m, self.initial_h = 0, 1/(1.25 * (math.e - 1) + 1), 2.5 / (2.5 + 4 * (math.e ** 2.5 - 1)), self.x/(self.x + 1)
-        self.initial_positions = (0, (0, (self.initial_v, self.initial_n, self.initial_m, self.initial_h)))
+        self.initial_positions = (0, (self.initial_v, self.initial_n, self.initial_m, self.initial_h))
         self.C, self.V_Na, self.V_k, self.V_L, self.g_bar_Na, self.g_bar_k, self.g_bar_l = 1, 115, -12, 10.6, 120, 36,  0.3
 
     def plot_activity(self):
