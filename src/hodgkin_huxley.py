@@ -7,9 +7,18 @@ class Neuron:
         self.stimulus = stimulus
         self.derivatives = [self.dV, self.dn, self.dm, self.dh]
         self.x = 0.07 * (math.e ** 3 + 1)
-        self.initial_v, self.initial_n, self.initial_m, self.initial_h = 0, 1/(1.25 * (math.e - 1) + 1), 2.5 / (2.5 + 4 * (math.e ** 2.5 - 1)), self.x/(self.x + 1)
+        self.initial_v = 0
+        self.initial_n = 1/(1.25 * (math.e - 1) + 1)
+        self.initial_m = 2.5 / (2.5 + 4 * (math.e ** 2.5 - 1))
+        self.initial_h = self.x/(self.x + 1)
         self.initial_positions = (0, (self.initial_v, self.initial_n, self.initial_m, self.initial_h))
-        self.C, self.V_Na, self.V_k, self.V_L, self.g_bar_Na, self.g_bar_k, self.g_bar_l = 1, 115, -12, 10.6, 120, 36,  0.3
+        self.C = 1
+        self.V_Na = 115
+        self.V_k = -12
+        self.V_L = 10.6
+        self.g_bar_Na = 120 
+        self.g_bar_k = 36
+        self.g_bar_l = 0.3
 
     def plot_activity(self):
         euler = EulerEstimator(self.derivatives, self.initial_positions)
@@ -35,7 +44,11 @@ class Neuron:
 
 
 def stimulus(t):
-    if 10 <= t <= 11 or 20 <= t <= 21 or 30 <= t <= 40 or 50 <= t <= 51 or 53 <= t <= 54 or 56 <= t <= 57 or 59 <= t <= 60 or 62 <= t <= 63 or 65 <= t <= 66: return 150
+    if 10 <= t <= 11 or 20 <= t <= 21 or \
+            30 <= t <= 40 or 50 <= t <= 51 or \
+            53 <= t <= 54 or 56 <= t <= 57 or \
+            59 <= t <= 60 or 62 <= t <= 63 or \
+            65 <= t <= 66: return 150
     else: return 0
 
 neuron = Neuron(stimulus)
