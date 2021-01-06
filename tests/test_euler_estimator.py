@@ -4,7 +4,7 @@ from euler_estimator import EulerEstimator
 
 print('\nTesting... \n')
 
-euler = EulerEstimator([(lambda x,y: x + 1)], (1, [4]))
+euler = EulerEstimator({'a':(lambda x,y: x + 1)}, (1, {'b':4}))
 
 print("    Testing EulerEstimator's calc_derivative()")
 assert euler.calc_derivative() == [2], "EulerEstimator's calc_derivative() was not right, it should be [2], but was {}".format(euler.calc_derivative())
@@ -31,7 +31,7 @@ print("    EulerEstimator's go_to_input() Passed!!!\n")
 
 print('--------------------------------------------')
 
-euler_2 = EulerEstimator([(lambda t,x: x[0] + 1), (lambda t,x: x[0] + x[1]), (lambda t,x: 2 * x[1])], (0,(0,0,0)))
+euler_2 = EulerEstimator({'a':(lambda t,x: x[0] + 1), 'b':(lambda t,x: x[0] + x[1]), 'c':(lambda t,x: 2 * x[1])}, (0,{'a':0,'b':0,'c':0}))
 print("    Testing EulerEstimator 2's calc_derivative()")
 assert euler_2.calc_derivative() == [1,0,0], "EulerEstimator 2's calc_derivative() was not right, it should be [1,0,0], but was {}".format(euler_2.calc_derivative())
 print("    EulerEstimator 2's calc_derivative() Passed!!!\n") 
@@ -57,5 +57,5 @@ print("    EulerEstimator 2's go_to_input() Passed!!!\n")
 
 print('All Tests Passed!!!')
 
-euler_3 = EulerEstimator([(lambda t,x: x[0] + 1), (lambda t,x: x[0] + x[1]), (lambda t,x: 2 * x[1])], (5, [10.88, 1.09, -9.58]))
-euler_3.plot([-5,5], stepsize = 0.1, filename = 'plot.png')
+euler_3 = EulerEstimator({'a':(lambda t,x: x[0] + 1), 'b':(lambda t,x: x[0] + x[1]), 'c':(lambda t,x: 2 * x[1])}, (5, {'a':10.88, 'b':1.09, 'c':-9.58}))
+#euler_3.plot([-5,5], stepsize = 0.1, filename = 'plot.png')

@@ -2,9 +2,9 @@ import matplotlib.pyplot as plt
 
 class EulerEstimator:
 	def __init__(self, derivatives, start_point):
-		self.derivatives = derivatives
-		self.original_point = list(start_point)
-		self.point = list(start_point)
+		self.derivatives = list(derivatives.values())
+		self.original_point = [start_point[0], list(start_point[1].values())]
+		self.point = [start_point[0], list(start_point[1].values())]
     
 	def calc_derivative(self):
 		return [derivative(self.point[0], self.point[1]) for derivative in self.derivatives]
@@ -25,7 +25,8 @@ class EulerEstimator:
 	def plot(self, x_range, stepsize=0.1, filename='plot.png'):
 		if self.original_point[0] == x_range[1]: xs, ys = self.get_positions_for_line(x_range, -stepsize)
 		else: xs, ys = self.get_positions_for_line(x_range, stepsize)
-		for y in [[ys[i][j] for i in range(0, len(ys))] for j in range(0, len(self.point[1]))]: plt.plot(xs, y)
+		for y in [[ys[i][j] for i in range(0, len(ys))] for j in range(0, len(self.point[1]))]: 
+			plt.plot(xs, y)
 		plt.savefig(filename)
 		plt.show()
 		
