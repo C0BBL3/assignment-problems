@@ -1,18 +1,12 @@
 def riemann_sum(function, a, b, delta_x, rule):
 
     def range_a_b(a,b,delta_x):
-        print('a', a)
-        print('b', b)
-        print('delta_x', delta_x)
-        print('int(a / delta_x)', int(a / delta_x))
-        print('int(b / delta_x)', int((b+delta_x) / delta_x))
         arr = []
         for x in range(int(a / delta_x), int((b+delta_x) / delta_x)):
             arr.append(x * delta_x)
         return arr
 
     range_a_b_ = range_a_b(a,b,delta_x)
-    print(range_a_b_)
 
     if rule == 'left endpoint':
         result = 0
