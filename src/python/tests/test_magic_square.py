@@ -1,16 +1,16 @@
-import sys
-sys.path.append('src')
 from magic_square import is_valid
+import sys
+sys.path.append('src/python')
 
 print('\nTesting... \n')
 
 arr1 = [[1, 2, None], [None, 3, None], [None, None, None]]
 
 arr2 = [[1, 2, None], [None, 3, None], [None, None, 4]]
-           
+
 arr3 = [[1, 2, None], [None, 3, None], [5, 6, 4]]
-           
-arr4 = [[None, None, None], [None, 3, None], [5, 6, 4]] 
+
+arr4 = [[None, None, None], [None, 3, None], [5, 6, 4]]
 
 print("    Testing is_valid() #1")
 assert is_valid(arr1) == True, "is_valid was not right, it should be True because because no rows, columns, or diagonals are completely filled in, but was {}".format(is_valid(arr1))
