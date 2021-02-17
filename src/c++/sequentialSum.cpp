@@ -29,6 +29,7 @@ int main()
 
     assert(extendedSeqSum(2)==1);
     assert(extendedSeqSum(3)==5);
+    assert(extendedSeqSum(4)==21);
 
     std::cout << "Success!\n";
 
