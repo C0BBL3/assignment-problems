@@ -1,23 +1,53 @@
 # include <iostream>
 # include <cassert>
 
-// write your functions seqSum and extendedSeqSum here
-int arr [9] = {0, 1, 1, 3, 5, 11, 21, 43, 85};
+
 
 int seqSum(int n) {
     if (n == 0) { return 0; }    
     else if (n == 1) { return 1; }
     else {
-        int sum = 0;
-        for(int i = 0; i <= n ; i++)
-            sum += arr[i];
+        int terms[n+1];
+        terms[0] = 0;
+        terms[1] = 1;
+        int sum = 1;
+        for(int i = 2; i <= n ; i++) {
+            terms[i] = terms[i - 1] + 2 * terms[i - 2];
+            sum += terms[i];
+        }
         return sum;
     }
 }
 
 int extendedSeqSum(int n) {
-    return seqSum(arr[n]);
+    if (n == 0) { return 0; }    
+    else if (n == 1) { return 1; }
+    else {
+        int terms[n+1];
+        terms[0] = 0;
+        terms[1] = 1;
+        for(int i = 2; i <= n ; i++) {
+            terms[i] = terms[i - 1] + 2 * terms[i - 2];
+        }
+        int valueOfNthTerm = terms[n];
+        int extendedTerms[valueOfNthTerm];
+        int sum = 0;
+        for(int i = 0; i <= valueOfNthTerm ; i++) {
+            if (i < n) { 
+                extendedTerms[i] = terms[i];
+                sum += extendedTerms[i];
+            }
+            else { 
+                extendedTerms[i] = extendedTerms[i - 1] + 2 * extendedTerms[i - 2];
+                sum += extendedTerms[i];
+            }
+        }
+        return sum;
+    }
 }
+
+// write your functions seqSum and extendedSeqSum here
+// no
 
 int main()
 {
